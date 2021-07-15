@@ -35,21 +35,29 @@ const SectionsContainer = styled.div`
   box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.1);
 
   display: grid;
-  grid-template-columns: repeat(2, auto);
   column-gap: 1rem;
   row-gap: 2rem;
+
+  @media (min-width: 700px) {
+    grid-template-columns: repeat(2, auto);
+  }
 `;
 
 const SectionContainer = styled.div`
   display: grid;
-  grid-template-columns: 50% auto;
   align-items: center;
+
+  @media(min-width: 1000px) {
+    grid-template-columns: 50% auto;
+  }
 `;
 
 const IconTitleContainer = styled.div`
   display: grid;
   justify-items: center;
   text-align: center;
+
+  row-gap: 1rem;
 `;
 
 const CourseSections = () => {

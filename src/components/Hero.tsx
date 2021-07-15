@@ -17,23 +17,31 @@ import {
 import ipad from "../images/ipad.png";
 import laptop from "../images/laptop.png";
 import phone from "../images/phone.png";
+import devices from "../images/devices.svg";
 import TextInput from "./TextInput";
 
 const Wrapper = styled.section`
   width: 90%;
   margin: 0 auto;
 
-  padding: 200px 0;
+  padding: 8rem 0;
 `;
 
 const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+
   align-items: center;
+  justify-content: center;
+
+  row-gap: 90px;
+  
+  @media(min-width: 1000px) {
+    grid-template-columns: repeat(2, 45%);
+    justify-content: space-between;
+  }
 `;
 
 const LeftHero = styled.div`
-  width: 45%;
   position: relative;
 `;
 
@@ -46,7 +54,7 @@ const LeftHeroWrapper = styled(motion.div)`
   width: 100%;
   height: 100%;
 
-  background-color: #fff;
+  background-color: white;
 `;
 
 const RectSpan = styled.span`
@@ -65,53 +73,20 @@ const RectSpan = styled.span`
 `;
 
 const RightHero = styled.div`
-  width: 45%;
+  width: 100%;
 `;
 
-const DevicesContainer = styled(motion.div)`
-  position: relative;
-  height: 322px;
-  width: 466px;
-  margin: 0 auto;
-  z-index: -1;
+const DevicesContainer = styled(motion.img)`
+  width: 90%;
+  height: auto;
+
+  max-width: 100%;
+
+  @media (min-width: 1000px) {
+    margin: 0 -4rem -4rem auto;
+  }
 
   filter: drop-shadow(10px 10px 40px rgba(56, 249, 215, 0.25));
-
-  #tablet,
-  #laptop,
-  #phone {
-    background-size: contain;
-    position: absolute;
-  }
-
-  #tablet {
-    background-image: url(${ipad});
-    width: 256px;
-    height: 192px;
-
-    left: 40.51%;
-    bottom: 30.31%;
-    transform: rotate(30deg);
-  }
-
-  #laptop {
-    background-image: url(${laptop});
-    width: 372px;
-    height: 279px;
-
-    left: 1.71%;
-    top: 13.35%;
-  }
-
-  #phone {
-    background-image: url(${phone});
-    height: 117px;
-    width: 156px;
-
-    right: 66.58%;
-    top: 39.94%;
-    transform: rotate(-30deg);
-  }
 `;
 
 const CTAInput = styled(motion.div)`
@@ -177,28 +152,29 @@ const Hero = () => {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.4, ease: "easeInOut" }}
-          >
-            <div id="laptop" />
-            <div id="tablet" />
-            <div id="phone" />
-          </DevicesContainer>
-          <CTAInput
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: "easeIn" }}
-          >
-            <CaptionText color={COLORS.graySecond} style={{ marginBottom: 18 }}>
-              Join with 3000+ other aspiring developers!
-            </CaptionText>
-            <TextInput />
-            <SmallText
-              color={COLORS.grayThird}
-              style={{ textAlign: "center", marginTop: 8 }}
+            src={devices}
+            alt="Devices"
+          />
+
+            <CTAInput
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2, ease: "easeIn" }}
             >
-              By proceding, you accept the{" "}
-              <UnderlineSpan href="#">terms and conditions</UnderlineSpan>.
-            </SmallText>
-          </CTAInput>
+              <CaptionText color={COLORS.graySecond} style={{ marginBottom: 18 }}>
+                Join with 3000+ other aspiring developers!
+              </CaptionText>
+              <TextInput />
+              <SmallText
+                color={COLORS.grayThird}
+                style={{ textAlign: "center", marginTop: 8 }}
+              >
+                By proceding, you accept the{" "}
+                <UnderlineSpan href="#">terms and conditions</UnderlineSpan>.
+              </SmallText>
+            </CTAInput>
+          {/* 
+          */}
         </RightHero>
       </Container>
     </Wrapper>

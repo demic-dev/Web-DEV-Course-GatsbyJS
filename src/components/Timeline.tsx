@@ -6,33 +6,79 @@ import { BaseWrapper, CaptionContainer } from "../utils/globalComponents";
 import { COLORS, POINTS } from "../utils/constants";
 
 const TimelineContainer = styled.div`
-  width: 100%;
-  margin-top: 8rem;
+  width: 90%;
+  margin: 8rem auto 0 auto;
+
+  @media (min-width: 1000px) {
+    width: 70%;
+  }
 `;
 
 const Line = styled.div`
-  height: 0.5rem;
+  width: 0.5rem;
+  height: 300px;
+
   background-color: ${COLORS.grayFirst};
   border-radius: 0.25rem;
 
   overflow: visible;
   position: relative;
+
+  @media (min-width: 700px) {
+    height: 0.5rem;
+    width: auto;
+  }
 `;
 
 const PointContainer = styled.div<{ position: number }>`
   position: absolute;
 
-  top: -100%;
-  left: ${({ position }) => position}%;
+  left: 50%;
+  top: ${({ position }) => position - 4}%;
+
+  @media (min-width: 700px) {
+    top: -100%;
+    left: ${({ position }) => position}%;
+  }
 `;
 
 const InfoContainer = styled.div`
-  transform: translateX(-50%);
+  transform: translateY(-65%);
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  
   align-items: center;
+  
+  margin-left: 1rem;
+  /* min-width: 250px; */
+
+  * {
+    min-width: 7rem;
+    text-align: center;
+  }
+
+  h5 {
+    min-width: 200px;
+    margin-left: 0.6rem;
+  }
+  
+  @media (min-width: 700px) {
+    flex-direction: column;
+    transform: translate(-50%);
+    
+    justify-content: center;
+    min-width: 0;
+
+    margin-left: 0;
+    h5 {
+      margin-left: 0;
+      margin-top: 0.2rem;
+    }
+
+    * {
+      min-width: 0;
+    }
+  }
 `;
 
 const LinePoint = styled.div`
@@ -73,7 +119,6 @@ const Timeline = () => {
                   style={{
                     maxWidth: "60%",
                     textAlign: "center",
-                    marginTop: 0,
                   }}
                 >
                   {point.heading}

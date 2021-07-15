@@ -48,7 +48,7 @@ export const SECTIONS = [
     icon: FaCss3Alt,
   },
   {
-    name: "React and frameworks",
+    name: "JS Frameworks",
     text:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore facere sunt inventore. Id obcaecati dolorum voluptatem soluta dolor.",
     icon: FaReact,
@@ -85,18 +85,21 @@ export const POINTS = [
 
 export const PROJECTS = [
   {
-    name: "",
-    img: "",
-    body: "",
+    name:
+      "Portfolio website Portfolio website Portfolio website Portfolio website Portfolio website Portfolio website ",
+    img: "https://placeimg.com/640/480/tech",
+    body:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex, aspernatur expedita velit ratione similique excepturi nisi quam exercitationem, ad?",
   },
   {
-    name: "",
-    img: "",
-    body: "",
+    name: "JS Timer and Timezone converter",
+    img: "https://placeimg.com/640/480/tech",
+    body:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex, aspernatur expedita velit ratione similique excepturi nisi quam exercitationem, ad? Facilis ex, aspernatur expedita velit ratione similique excepturi nisi quam exercitationem, ad?",
   },
   {
-    name: "",
-    img: "",
-    body: "",
+    name: "Complete webapp + admin panel",
+    img: "https://placeimg.com/640/480/tech",
+    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ex!",
   },
 ];

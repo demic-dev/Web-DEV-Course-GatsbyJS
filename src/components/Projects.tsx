@@ -2,42 +2,54 @@ import React from "react";
 import styled from "styled-components";
 
 import { BaseWrapper, CaptionContainer } from "../utils/globalComponents";
-import { H1, BodyText } from "../utils/typography";
+import { BodyText } from "../utils/typography";
 import { COLORS, PROJECTS } from "../utils/constants";
 
+import SingleProject from "./SingleProject";
+
 const ProjectsContainer = styled.div`
-  width: 100%;
-  margin-top: 5rem;
+  width: 60%;
+  margin: 5rem auto 0 auto;
   position: relative;
 
   display: grid;
-  grid-template-columns: repeat(${PROJECTS.length}, auto);
+  
   gap: 3rem;
-`;
 
-const SingleProjectContainer = styled.div`
-  width: 100%;
-  border-radius: 4px;
-  padding: 2rem;
-
-  background-color: #fff;
-
-  box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.1);
+  @media (min-width: 1000px) {
+    width: 100%;
+    margin: 5rem 0 0 0;
+    grid-template-columns: repeat(${PROJECTS.length}, auto);
+  }
 `;
 
 const Line = styled.div`
   position: absolute;
-  top: 50%;
+  top: 20%;
+  left: 50%;
 
-  width: 135%;
-  height: 0.5rem;
+  height: 100%;
+  width: 0.5rem;
+  
+  transform: translate(-50%, -20%);
+
 
   border-radius: 0.25rem;
   background-image: ${COLORS.primaryGradient};
 
-  transform: translate(-20%, -50%);
 
   z-index: -1;
+
+  @media (min-width: 1000px) {
+
+    top: 50%;
+    left: 0;
+
+    width: 135%;
+    height: 0.5rem;
+
+    transform: translate(-20%, -50%);
+  }
 `;
 
 const Projects = () => {
@@ -51,12 +63,13 @@ const Projects = () => {
         </BodyText>
       </CaptionContainer>
       <ProjectsContainer>
-        {PROJECTS.map((value, index) => (
-          <SingleProjectContainer key={`__${index}`}>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-          </SingleProjectContainer>
+        {PROJECTS.map(({ img, name, body }, index) => (
+          <SingleProject
+            image={img}
+            title={name}
+            body={body}
+            key={`__${index}`}
+          />
         ))}
         <Line />
       </ProjectsContainer>

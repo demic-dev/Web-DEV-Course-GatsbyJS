@@ -11,14 +11,19 @@ interface WrapperProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const Wrapper = styled(motion.section)`
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
 
   padding: 150px 0;
+
+  @media (min-width: 1000px) {
+    width: 70%;
+  }
 `;
 
 export const CaptionContainer = styled.div`
-  width: 50%;
+  min-width: 50%;
+  max-width: 75%;
 `;
 
 export const BaseWrapper: React.FC<WrapperProps> = ({ name, id, children }) => (
