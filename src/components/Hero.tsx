@@ -14,11 +14,10 @@ import {
   UnderlineSpan,
 } from "../utils/typography";
 
-import ipad from "../images/ipad.png";
-import laptop from "../images/laptop.png";
-import phone from "../images/phone.png";
 import devices from "../images/devices.svg";
 import TextInput from "./TextInput";
+
+const windowHeight = typeof window !== "undefined" ? window.innerHeight : 0;
 
 const Wrapper = styled.section`
   width: 90%;
@@ -119,7 +118,7 @@ const Hero = () => {
         <LeftHero>
           <LeftHeroWrapper
             initial={{ y: 0 }}
-            animate={{ y: -window.innerHeight }}
+            animate={{ y: -windowHeight }}
             transition={{ duration: 1.2, ease: "easeIn" }}
           />
           <H1>
